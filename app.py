@@ -8,6 +8,10 @@ artifact = joblib.load("model.joblib")
 model = artifact["pipeline"]
 labels = artifact["labels"]
 
+@app.route("/", methods=["GET"])
+def home():
+    return "<h1>Welcome! This is the Root Page of My ML API.</h1>"
+
 @app.route("/health", methods=["GET"])
 def health():
     return {"status": "ok"}, 200
